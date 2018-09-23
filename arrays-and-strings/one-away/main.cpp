@@ -20,7 +20,8 @@ bool charChange(const std::string& s1, const std::string& s2) {
 }
 
 bool charInsert(const std::string& s1, const std::string& s2) {
-	int lenDiff = s1.size() > s2.size() ? s1.size() - s2.size() : s2.size() - s1.size();
+	int lenDiff = s1.size() - s2.size();
+	lenDiff = abs(lenDiff);
 	
 	if (lenDiff != 1)
 		return false;
