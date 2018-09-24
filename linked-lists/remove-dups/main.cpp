@@ -30,7 +30,7 @@ void rmDup(Node *head) {
 
 		cur = cur->next;
 	}
-}
+} // n^2 time, n space
 
 void rmVal(Node *head, int val) {
 	Node *prev = head;
@@ -39,10 +39,10 @@ void rmVal(Node *head, int val) {
 	while (cur) {
 		if (cur->val != val) {
 			prev = cur;
-		} // cur doesn't have val we want to remove
+		} // cur doesn't have val we want to remove, move prev
 		else {
 			prev->next = cur->next;
-		} // cur has the forbidden value
+		} // cur has the forbidden value, don't move prev, but point its next one forward
 
 		cur = cur->next;
 	}
@@ -55,7 +55,7 @@ void rmDupNoExtra(Node *head) {
 		rmVal(cur, cur->val);
 		cur = cur->next;
 	}
-}
+} // same functionality as rmDup, but no extra data structure is used. n^2 time
 
 void printList(Node *head) {
 	Node *cur = head;
@@ -86,6 +86,8 @@ int main() {
 	// print test data
 	cout << "After:\t\t";
 	printList(head);
+
+	cur = head;
 
 	return 0;
 }
