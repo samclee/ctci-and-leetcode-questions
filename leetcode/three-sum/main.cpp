@@ -18,37 +18,31 @@ vector< vector<int> > threeSum(vector<int> nums) {
 
 	while (curInd < nums.size() && nums[curInd] <= 0) {
 		int curNum = nums[curInd];
+		if (curInd > 0 && curNum == nums[curInd-1]) {
+			curInd++;
+			continue;
+		}
 		int l = curInd + 1, r = nums.size() - 1;
 
 		while (l < r) {
-			int lrSum = nums[l] + nums[r];
+			int lVal = nums[l], rVal = nums[r];
+			int sum = curNum + lVal + rVal;
 
-			if (lrSum == -curNum) {
-				sols.push_back({curNum, nums[l], nums[r]});
+			if (sum == 0) {
+				sols.push_back({curNum, lVal, rVal});
 				
-				r--;
-				while (nums[r] == nums[r+1])
-					r--;
-
-				l++;
-				while (nums[l] == nums[l-1])
-					l++;
+				while (l < r && lVal == nums[++l]);
+				while (l < r && rVal == nums[--r]);
 			}
-			else if (lrSum > -curNum) {
+			else if (sum > 0) {
 				r--;
-				while (nums[r] == nums[r+1])
-					r--;
 			} // too large, reduce positive part
-			else if (lrSum < - curNum) {
+			else if (sum < 0) {
 				l++;
-				while (nums[l] == nums[l-1])
-					l++;
 			} // too small, reduce negative part (or add positive part)
 		} // move ptrs inward, check lrSums
 
 		curInd++;
-		while (nums[curInd] == nums[curInd-1])
-			curInd++;
 	} // iterate thru non-positive nums
 
 
