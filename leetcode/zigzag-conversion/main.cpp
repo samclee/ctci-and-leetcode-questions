@@ -39,10 +39,40 @@ vector< vector<char> > zigzag(string s, int numRows) {
 	return sol;
 }
 
+string convert(string s, int numRows){
+	vector<vector<char>> sol(numRows);
+	string solStr = "";
+
+	if (numRows <= 0)
+		return solStr;
+	if (numRows == 1)
+		return s;
+
+	int i = 0;
+	while (i < s.size()) {
+		for (int traveled = 0; traveled < numRows && i < s.size(); traveled++, i++) {
+			sol[traveled].push_back(s[i]);
+		} // going down
+
+		for (int traveled = numRows-2; traveled > 0 && i < s.size(); traveled--, i++) {
+			sol[traveled].push_back(s[i]);
+		} // going up
+	}
+
+	for (auto r : sol) {
+		for (auto c : r) {
+			solStr += c;
+		}
+	}
+
+	return solStr;
+}
+
 int main() {
-	string test = "THISISATESTSTRINGYAY";
+	string test = "PAYPALISHIRING";
 
 	auto zigzagStr = zigzag(test, 4);
+	auto str = convert(test, 3);
 
 	for (auto r : zigzagStr) {
 		for (auto c : r) {
@@ -50,6 +80,9 @@ int main() {
 		}
 		cout << '\n';
 	}
+
+	cout << str << '\n';
+
 
 	return 0;
 }
