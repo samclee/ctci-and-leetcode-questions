@@ -40,32 +40,31 @@ vector< vector<char> > zigzag(string s, int numRows) {
 }
 
 string convert(string s, int numRows){
-	vector<vector<char>> sol(numRows);
-	string solStr = "";
+	vector<string> sol(numRows);
 
 	if (numRows <= 0)
-		return solStr;
+		return "";
 	if (numRows == 1)
 		return s;
 
 	int i = 0;
 	while (i < s.size()) {
 		for (int traveled = 0; traveled < numRows && i < s.size(); traveled++, i++) {
-			sol[traveled].push_back(s[i]);
+			sol[traveled] += s[i];
 		} // going down
 
 		for (int traveled = numRows-2; traveled > 0 && i < s.size(); traveled--, i++) {
-			sol[traveled].push_back(s[i]);
+			sol[traveled] += s[i];
 		} // going up
 	}
 
-	for (auto r : sol) {
-		for (auto c : r) {
-			solStr += c;
-		}
+	// make matrix into string
+	string totalStr = "";
+	for (auto row : sol) {
+		totalStr += row;
 	}
 
-	return solStr;
+	return totalStr;
 }
 
 int main() {
