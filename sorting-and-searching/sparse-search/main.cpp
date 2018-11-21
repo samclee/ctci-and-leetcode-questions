@@ -12,6 +12,8 @@ int sparseSearch(const vector<string>& v, string t) {
 		m = (l + r) / 2;
 
 		if (v[m] == "") {
+			int scanL = m-1;
+			int scanR = m+1;
 			while (true) {
 				if (scanL < l && scanR > r)
 					return -999;
