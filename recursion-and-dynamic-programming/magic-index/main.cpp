@@ -20,7 +20,7 @@ int findMagicDistinct(vector<int> ary) {
 } // find magic index with the guarantee that all given values are distinct
 
 void useTestAry(vector<int> testAry) {
-int index = findMagicDistinct(testAry);
+	int index = findMagicDistinct(testAry);
 	cout << "Given array: [ ";
 	for (auto i : testAry)
 		cout << i << " ";
