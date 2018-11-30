@@ -25,9 +25,6 @@ void rotate(vector<vector<int>>& matrix) {
         	matrix[reverseOffset][layer] = matrix[reverseLayer][reverseOffset];
         	matrix[reverseLayer][reverseOffset] = matrix[offset][reverseLayer];
         	matrix[offset][reverseLayer] = temp;
-
-        	//cout << matrix[layer][offset] << matrix[reverseOffset][layer] << matrix[reverseLayer][reverseOffset]
-        	//	<< matrix[offset][reverseLayer] << '\n';
         }
     }
 }

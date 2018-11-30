@@ -13,11 +13,7 @@ vector<string> groupAnagrams(const vector<string>& words) {
 
 	for (auto word : words) {
 		string sortedWord = word;
-		sort(sortedWord.begin(), sortedWord.end());
-		
-		if (wordMap.find(sortedWord) == wordMap.end()) {
-			wordMap.insert({sortedWord, vector<string>()});
-		} // first of its kind
+		sort(sortedWord.begin(), sortedWord.end()); // get its base word
 		
 		wordMap[sortedWord].push_back(word);
 	}
