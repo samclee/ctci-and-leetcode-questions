@@ -13,7 +13,7 @@ int rotatedSearch(vector<int> v, int tg) {
 		if (vm == tg) 
 			return m;
 
-		if (v[l] < v[r]) {
+		if (vl < vr) {
 			// binary search
 			if (vm < tg)
 				l = m + 1;
