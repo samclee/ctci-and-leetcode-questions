@@ -29,8 +29,10 @@ void buildSum(const vector<int>& candidates, vector<int> inProg, int curPos, int
 
 vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
 	vector<vector<int>> sols;
+	
 	vector<int> sorted(candidates);
 	sort(candidates.begin(), candidates.end());
+	
 	vector<int> inProg{};
 
 	buildSum(candidates, inProg, 0, target, sols);
