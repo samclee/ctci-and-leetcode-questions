@@ -13,7 +13,7 @@ int findWays(int steps, vector<int>& memo) {
 	// memo[steps] is unknown, calculate and return
 	memo[steps] = 0;
 	for (int i = 1; i < 4; i++) 
-		memo[steps] += findWays(steps - i, memo);
+		memo[steps] += findWays(steps - i, memo); // find ways using 1, 2, or 3 steps
 
 	return memo[steps];
 }
