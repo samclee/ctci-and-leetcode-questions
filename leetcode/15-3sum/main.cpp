@@ -50,9 +50,10 @@ vector< vector<int> > threeSum(vector<int> nums) {
 } //threeSum()
 
 int main() {
-	vector<int> testVec{-1, 0, 1, 2, -1, -4, -1, 2, 3};
+	vector<int> testVec{-1, 0, 1, 2, -1, -4, -1, 2, 3,4};
+	vector<int> testVec2{-4,-2,1,-5,-4,-4,4,-2,0,4,0,-2,3,1,-5,0};
 
-	vector<vector<int>> sols = threeSum(testVec);
+	vector<vector<int>> sols = threeSum(testVec2);
 
 	cout << "For vector:\n[";
 	for (auto e : testVec)

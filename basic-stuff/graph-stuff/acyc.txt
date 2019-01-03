@@ -1,0 +1,13 @@
+a->b
+a->c
+b->d
+b->g
+c->b
+c->e
+d->e
+d->f
+e->h
+f->g
+f->h
+g->h
+i->j
