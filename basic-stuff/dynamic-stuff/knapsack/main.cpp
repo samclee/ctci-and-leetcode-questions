@@ -27,26 +27,25 @@ int subset_sum(vector<int> wgts, int target) {
 }
 
 // top-down
-int lcs(string s1, string s2, int len1, int len2, vector<vector<int>>& memo) {
-	cout << len1 << " " << len2 << endl;
-	if (len1==0 || len2==0)
+int lcs(string s1, string s2, int i1, int i2, vector<vector<int>>& memo) {
+	if (i1==-1 || i2==-1)
 		return 0;
-	else if (memo[len1-1][len2-1] != -1)
-		return memo[len1-1][len2-1];
-	else if (s1[len1-1] == s2[len2-1]) {
-		memo[len1-1][len2-1] = 1+lcs(s1,s2,len1-1,len2-1,memo);
+	else if (memo[i1][i2] != -1)
+		return memo[i1][i2];
+	else if (s1[i1] == s2[i2]) {
+		memo[i1][i2] = 1+lcs(s1,s2,i1-1,i2-1,memo);
 	}
-	else if (s1[len1-1 != s2[len2-1]]) {
-		memo[len1-1][len2-1] = max(lcs(s1,s2,len1,len2-1,memo),lcs(s1,s2,len1-1,len2,memo));
+	else if (s1[i1] != s2[i2]) {
+		memo[i1][i2] = max(lcs(s1,s2,i1,i2-1,memo),lcs(s1,s2,i1-1,i2,memo));
 	}
 
-	return memo[len1-1][len2-1];
+	return memo[i1][i2];
 }
 
 int lcs(string s1, string s2) {
 	vector<vector<int>> memo(s1.size(),vector<int>(s2.size(),-1));
 
-	return lcs(s1,s2,s1.size(),s2.size(),memo);
+	return lcs(s1,s2,s1.size()-1,s2.size()-1,memo);
 }
 
 
