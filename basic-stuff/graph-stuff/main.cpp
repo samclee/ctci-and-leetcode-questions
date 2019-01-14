@@ -24,7 +24,7 @@ bool contains_cycle(string cur, set<string> cur_path, Graph& g) {
 	}
 
 	return false;
-}
+} // helper
 
 bool contains_cycle(Graph g) {
 	map<string, Node> all_nodes = g.getNodes();
@@ -36,7 +36,7 @@ bool contains_cycle(Graph g) {
 	}
 
 	return false;
-}
+} // driver
 
 void top_sort(string cur, vector<string>& order, Graph& g) {
 	// return if marked
@@ -50,7 +50,7 @@ void top_sort(string cur, vector<string>& order, Graph& g) {
 	}
 	//add to order
 	order.insert(order.begin(), cur);
-}
+} // helper
 
 void top_sort(Graph g) {
 	// make list
@@ -66,7 +66,7 @@ void top_sort(Graph g) {
 	for (string e: order)
 		cout << e;
 	cout << '\n';
-}
+} // driver
 
 bool top_sort_augmented(string cur, vector<string>& order, set<string> cur_path, Graph& g) {
 	if (cur_path.find(cur) != cur_path.end())
@@ -85,7 +85,7 @@ bool top_sort_augmented(string cur, vector<string>& order, set<string> cur_path,
 
 	order.insert(order.begin(),cur);
 	return true;
-}
+} // helper
 
 bool top_sort_augmented(Graph g, vector<string>& order) {
 	// create rec stack
@@ -105,7 +105,7 @@ bool top_sort_augmented(Graph g, vector<string>& order) {
 	cout << '\n';
 
 	return true;
-}
+} // driver
 
 
 void BFS(string start, Graph& g) {
